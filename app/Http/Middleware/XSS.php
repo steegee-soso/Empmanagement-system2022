@@ -18,7 +18,6 @@ class XSS
         /**
          * Handle XSS attask, strip_stage strip_slashess
          * This middleware will handle XSS input filtering on all input
-         * 
          */
         $input= $request->all();
         array_walk_recursive($input, function(&$input){
