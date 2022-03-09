@@ -8,7 +8,7 @@ class CreateFailedJobsTable extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * Run the record
      * @return void
      */
     public function up()
@@ -25,8 +25,8 @@ class CreateFailedJobsTable extends Migration
     }
 
     /**
-     * Reverse the migrations.
-     *
+     * Reverse the migrations. 
+     * 
      * @return void
      */
     public function down()

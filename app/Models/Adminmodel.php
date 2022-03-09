@@ -11,10 +11,9 @@ class Adminmodel extends Model
 
     /**
      * add fillable to this file
-     * fIllables are fields needed to be filed 
-     * by user/seeding
+     * fIllables are fields needed to be filled
      */
      protected $table="adminmodels";
-     public   $timestamps = false;
+     public    $timestamps = false;
      protected $fillable =['name','firstname','lastname','username','password','status','role_id'];
 }

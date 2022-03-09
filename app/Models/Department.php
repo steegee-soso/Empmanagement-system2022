@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Department extends Model
 {
     use HasFactory;
+
+    protected $table ="departments";
+    public    $timestamps = false;
+    protected $fillable =['name', 'status'];
 }

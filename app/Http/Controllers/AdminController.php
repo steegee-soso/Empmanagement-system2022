@@ -30,9 +30,8 @@ class AdminController extends Controller
 
         if($user_exists > 0){
             $user_data= AdminGenericModele::fetch_user_details($username, $password);
-            $username="";
-            $fetch_firstname="";
-            $fetched_lastname="";
+            $fetch_firstname=$username;
+            $fetched_lastname=$password;
             $array_data=json_encode([$fetch_firstname, $fetched_lastname]);
             Session(['userdata',$array_data]);
             return redirect('/admin');
@@ -50,7 +49,8 @@ class AdminController extends Controller
 
         $request->validate(['username'=>"required|max:70|min:5",
         'password'=>'required|max:20|min:8|confirmed',
-        'firstname'=>'required|max:50|min:2','lastname'=>'required|max:50|min:2',
+        'firstname'=>'required|max:50|min:2',
+        'lastname'=>'required|max:50|min:2',
         'password_confirmation'=>'required|max:20|min:8']);
 
         $user_exist= Adminmodel::where(['username'=>$request->username])->count();
@@ -61,8 +61,12 @@ class AdminController extends Controller
         }
 
         $uuid = Str::uuid()->toString();
-        $add_user = Adminmodel::create(['uuid'=>$uuid, 'firstname'=>$request->firstname,'lastname'=>$request->lastname,
-        'username'=>$request->username,'password'=>bcrypt($request->password)])->id;
+
+        $add_user = Adminmodel::create(['uuid'=>$uuid, 
+        'firstname'=>$request->firstname,
+        'lastname'=>$request->lastname,
+        'username'=>$request->username,
+        'password'=>bcrypt($request->password)])->id;
 
         if($add_user > 0){
             return redirect('admin/register')->with('success', 'User has been created successfully');
@@ -73,15 +77,14 @@ class AdminController extends Controller
     }
 
     public function user_activation(Request $request){
+
     }
 
     public function logout(Request $request){
+
         if(isset($_SESSION)){
             $request->session()->invalidate();
         }
         return redirect('admin/login');
     }
-
-
-
 }

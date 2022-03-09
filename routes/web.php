@@ -33,8 +33,12 @@ Route::group(['middleare'=>['XSS']], function(){
 
 //roles
     Route::group(['middleware'=>['XSS']], function(){
+
         Route::get('admin/role', [RoleController::class,'index']);
+        Route::post('admin/addRole',[RoleController::class, 'create']);
         Route::get('admin/department',[DepartmentController::class, 'index']);
+        Route::post('admin/addDepartment',[DepartmentController::class,'create']);
+
     });
 
  //Department Controller

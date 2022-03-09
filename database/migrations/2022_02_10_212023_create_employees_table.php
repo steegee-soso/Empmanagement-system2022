@@ -24,13 +24,14 @@ class CreateEmployeesTable extends Migration
             $table->string('email', 155)->uniqid();
             $table->string('phone_number', 30)->uniqid();
             $table->string('image')->nullable();
+            $table->string('cv_doc')->nullable();
             $table->string('status', 20)->default('inactive');
             $table->timestamps();
         });
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations. 
      *
      * @return void
      */

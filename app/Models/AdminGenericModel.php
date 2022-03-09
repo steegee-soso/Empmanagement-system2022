@@ -38,9 +38,13 @@ class AdminGenericModele{
         return $result;
     }
 
+    public static function auth_logs($user_id, $username, $payload){
+    }
+
     public static function update_user_details($first_name, $last_name, $username, $password, $id){}
 
     public static function delete_user($id){
+        
     }
 
 }
