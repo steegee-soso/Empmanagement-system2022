@@ -3,7 +3,7 @@
 
 <div class="container">
     <div class="col-md-10">
-        <div class="card">
+        {{-- <div class="card">
             <div class="card-header">
               <ul class="nav nav-pills card-header-pills">
                 <li class="nav-item">
@@ -16,14 +16,13 @@
                   <a class="nav-link disabled" href="#">Disabled</a>
                 </li>
               </ul>
-            </div>
+            </div> --}}
             <div class="card-body">
               <h5 class="card-title">Add Employee</h5>
                 <hr/>
-
                 <br/>
     
-                <form>
+                <form method="POST" class="frm_employee">
 
                   <p>
                     <div class="form-group">
@@ -60,19 +59,29 @@
                             
                             <p>
                                 <div class="form-group">
-                                  {{-- <label for="formGroupExampleInput2">Role</label> --}}
                                    <select required="required" name="role" class="form-control form-control-lg">
                                        <option value="">Select-Role</option>
+                                       @if($role)
+                                          @foreach ($role as  $roles )
+                                            <option value={{$roles->id}}>{{$roles->name}}</option>
+                                          @endforeach
+                                       @endif
                                    </select>
                                 </div>
                            </p>
-
 
                            <p>
                             <div class="form-group">
                               {{-- <label for="formGroupExampleInput2">Department</label> --}}
                                <select required="required" name="department" class="form-control form-control-lg">
                                    <option value="">Select-Department</option>
+
+                                   @if($role)
+                                      @foreach ($department as  $departments)
+                                           <option value={{$departments->id}}>{{$departments->name}}</option>
+                                      @endforeach
+                                   @endif
+
                                </select>
                             </div>
                           </p>
@@ -80,10 +89,26 @@
                           <p>
                             <div class="form-group">
                               {{-- <label for="formGroupExampleInput2">Job Description</label> --}}
-                              <input type="file"  required="required" class="form-control form-control-lg" id="" placeholder=" ">
+                              <input type="file"  required="required" class="form-control form-control-lg" id="" placeholder="">
                             </div>
                             </p>
-                          
+
+                            <div class="main_container">
+
+                            <div class="row">
+                              <div class="col-md-5">
+                                <input type="text" name="description" class="form-control form-control-lg"  placeholder="Document name ">
+                              </div>
+
+                              <div class="col-md-5">
+                                <input type="file" name="filename[]" class="form-control form-control-lg">
+                              </div>
+
+                              <div class="col-md-2">
+                                <input type="button" class="btn btn-danger add_doc" value="Add new (+)">
+                              </div>
+                            </div>
+                            </div>
 
                           <p>
                              <div class="form-group">
@@ -92,12 +117,17 @@
                           </p>
                   </form>
             </div>
-          </div>
-    
+          {{-- </div> <!--end with the !--> --}}
     </div>
 </div>
 
-
-
+@push('scripts')
+    <script src="{{asset('public')}}/js/employee.js"></script>
+@endpush
 
 @endsection()
+
+
+
+
+

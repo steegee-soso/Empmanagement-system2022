@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class DepartmentController extends Controller
 {
-    
+
     public function __construct(){
     }
 
@@ -23,7 +23,7 @@ class DepartmentController extends Controller
         if($isExistDepart > 0){
             return redirect('admin/department')->with('errormsg','Department already exists.Provide a unique username');
         }
-
+        
         $saveDepart = Department::create(['name'=>$request->department, 'status'=>$request->status])->id;
 
         if($saveDepart > 0){

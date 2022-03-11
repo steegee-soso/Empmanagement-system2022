@@ -9,7 +9,6 @@ use Exception;
 
 class RoleController extends Controller
 {
-
     private $flag=false;
 
     public function __construct()
@@ -17,13 +16,11 @@ class RoleController extends Controller
     }
 
     public function index(){
-
         $results = Role::orderBy('failed_at', 'DESC')->get();
         return view('role', ['data'=>$results]);
     }
 
     public function create(Request $request){
-
         $role= $request->role;
         $status= $request->status;
         $request->validate(['role'=>'required', 'status'=>'required']);
@@ -35,7 +32,7 @@ class RoleController extends Controller
         }
 
         $addRole = Role::create(['name'=>$role, 'status'=>$status])->id;
-        
+
         if($addRole > 0){
             return redirect('admin/role')->with('success', 'Role has been created successfully');
         }
