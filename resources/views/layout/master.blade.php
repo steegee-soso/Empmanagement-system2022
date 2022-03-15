@@ -10,7 +10,7 @@
         <link href="{{asset('public')}}/css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <style type="text/css">
 
            .divider{

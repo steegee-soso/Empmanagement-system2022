@@ -43,6 +43,7 @@ Route::group(['middleare'=>['XSS']], function(){
  //Department Controller
  Route::group(['middleware'=>['XSS']], function(){
     Route::get('admin/employee', [EmployeeController::class, 'index']);
+    Route::post('employee/add',[EmployeeController::class,'create']);
  });
 
 

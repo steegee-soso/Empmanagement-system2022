@@ -22,44 +22,44 @@
                 <hr/>
                 <br/>
     
-                <form method="POST" class="frm_employee">
+                <form method="POST" action="#" class="frm_employee" enctype="multipart/form-data">
 
                   <p>
                     <div class="form-group">
                       {{-- <label for="formGroupExampleInput2">Name</label> --}}
-                      <input type="name" required="required" class="form-control form-control-lg" id="" placeholder="Enter Full name ">
+                      <input type="text" name="fullname" required="required" class="form-control form-control-lg" id="" placeholder="Enter Full name ">
                     </div>
                     </p>
 
                     <div class="form-group">
                       {{-- <label for="formGroupExampleInput">Phone number</label> --}}
-                      <input type="text" class="form-control form-control-lg" id="" placeholder="Enter phone number">
+                      <input type="text" class="form-control form-control-lg" name="phone_number" id="" placeholder="Enter phone number">
                     </div>
 
                     <p>
                     <div class="form-group">
                       {{-- <label for="formGroupExampleInput2">Email</label> --}}
-                      <input type="email" required="required" class="form-control form-control-lg" id="" placeholder="Enter Email ">
+                      <input type="email" name="email" required="required" class="form-control form-control-lg" id="" placeholder="Enter Email ">
                     </div>
                     </p>
 
                       <p>
                         <div class="form-group">
                           {{-- <label for="formGroupExampleInput2">Job Role</label> --}}
-                          <input type="job_role" class="form-control form-control-lg" id="" placeholder="Enter Job role ">
+                          <input type="text" name="job_role" class="form-control form-control-lg" id="" placeholder="Enter Job role ">
                         </div>
                         </p>
 
                           <p>
                             <div class="form-group">
                               {{-- <label for="formGroupExampleInput2">Job Description</label> --}}
-                              <input type="job_description" class="form-control form-control-lg" id="" placeholder="Enter Job Description ">
+                              <input type="text" name="job_description" class="form-control form-control-lg" id="" placeholder="Enter Job Description ">
                             </div>
                             </p>
                             
                             <p>
                                 <div class="form-group">
-                                   <select required="required" name="role" class="form-control form-control-lg">
+                                   <select  name="role" class="form-control form-control-lg">
                                        <option value="">Select-Role</option>
                                        @if($role)
                                           @foreach ($role as  $roles )
@@ -73,7 +73,7 @@
                            <p>
                             <div class="form-group">
                               {{-- <label for="formGroupExampleInput2">Department</label> --}}
-                               <select required="required" name="department" class="form-control form-control-lg">
+                               <select  name="department" class="form-control form-control-lg">
                                    <option value="">Select-Department</option>
 
                                    @if($role)
@@ -88,8 +88,9 @@
 
                           <p>
                             <div class="form-group">
-                              {{-- <label for="formGroupExampleInput2">Job Description</label> --}}
-                              <input type="file"  required="required" class="form-control form-control-lg" id="" placeholder="">
+                              <label for="formGroupExampleInput2">Upload image</label>
+                              <input type="file"  required="required" name="fileimage" class="form-control 
+                              form-control-lg" id="" placeholder="Upload image">
                             </div>
                             </p>
 
@@ -101,7 +102,7 @@
                               </div>
 
                               <div class="col-md-5">
-                                <input type="file" name="filename[]" class="form-control form-control-lg">
+                                <input type="file" name="filename[]" class="form-control form-control-lg filenameobj">
                               </div>
 
                               <div class="col-md-2">
@@ -109,6 +110,8 @@
                               </div>
                             </div>
                             </div>
+
+                            <input type="hidden" name="user_id" value="">
 
                           <p>
                              <div class="form-group">
