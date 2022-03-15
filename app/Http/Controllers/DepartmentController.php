@@ -35,7 +35,6 @@ class DepartmentController extends Controller
     }
 
     public function delete(){
-
     }
 
     public function update(){

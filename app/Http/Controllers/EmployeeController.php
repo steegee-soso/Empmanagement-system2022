@@ -9,7 +9,7 @@ use App\Models\Employee;
 use Illuminate\Auth\Events\Validated;
 use Illuminate\Support\Facades\Validator;
 
-
+ 
 class EmployeeController extends Controller
 {
     private $arrayObject=[];
@@ -62,7 +62,6 @@ class EmployeeController extends Controller
         }
 
         //test for multiple files upload record 
-
         if($flag){
             //save the ecord inti the db
         }

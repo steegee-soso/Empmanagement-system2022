@@ -18,7 +18,6 @@ let formGen=`<div class="row dynamic_container" style='margin-top:10px;'>
 
 $(function() {
 
-
       $(".add_doc").click(function(e){
           $(mainDiv).append(formGen);
       });
@@ -31,7 +30,7 @@ $(function() {
         alert("yes, file changed event");
       });
 
-
+      
       /**
        * process form submission
        */
